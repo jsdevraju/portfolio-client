@@ -21,6 +21,7 @@ import {
 import Button from "../../src/components/button/Button";
 import toast from "react-hot-toast";
 import Meta from "../../src/components/meta/Meta";
+import Image from "next/image";
 
 const PortfolioDetails = () => {
   const router = useRouter();
@@ -76,10 +77,12 @@ const PortfolioDetails = () => {
   useEffect(() =>{
     setShareUrl(document.URL)
   }, [])
+  
 
   return (
     <>
-      <Meta title={`Razu Islam | ${data?.name}`} />
+    {console.log(data)}
+      <Meta title={`Razu Islam | ${data?.name === undefined ? `loading...` : data?.name}`} />
       {loading ? (
         <Loader />
       ) : (
@@ -87,7 +90,9 @@ const PortfolioDetails = () => {
           <div className="container">
             <div className={styles.portContainer}>
               <div className={styles.portImg}>
-                <img src={data?.img} alt="Razu Islam" />
+                {data?.img && (
+                   <Image src={data?.img} alt="Razu Islam" width={"100%"} height={"100%"} />
+                )}
               </div>
               <h1 className={styles.text}>
                 Application Name: <span>{data?.name}</span>
@@ -96,6 +101,7 @@ const PortfolioDetails = () => {
                 className={styles.liveDemo}
                 href={data?.liveDemo}
                 target="_blank"
+                rel="noreferrer"
               >
                 Visit: {data?.liveDemo}
               </a>

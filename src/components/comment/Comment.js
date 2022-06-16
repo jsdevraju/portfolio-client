@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 
 const Comment = ({ comment }) => {
 
@@ -7,9 +7,11 @@ const Comment = ({ comment }) => {
       <div className="comment_show">
         <div className="wrapper">
           <div className="user_img">
-            <img
+            <Image
               src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
               alt="Razu Islam"
+              width={"100%"}
+              height={"100%"}
             />
           </div>
           <div className="user_comment">

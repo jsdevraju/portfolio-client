@@ -4,6 +4,7 @@ import PortfolioCard from "../src/components/portfolio/PortfolioCard.js";
 import axios from "axios";
 import { useState } from "react";
 import Meta from "../src/components/meta/Meta";
+import Loader from "../src/components/loader/Loader";
 
 const Portfolio = ({ portfolio }) => {
   const allCategories = [
@@ -25,7 +26,8 @@ const Portfolio = ({ portfolio }) => {
   return (
     <>
       <Meta title="Razu Islam | Portfolio" />
-      <section className={styles.portfolio}>
+      {portfolio ? (
+        <section className={styles.portfolio}>
         <div className="container">
           <h1 className="aboutText">Portfolio</h1>
           <div className={styles.portfolioFilter}>
@@ -51,6 +53,7 @@ const Portfolio = ({ portfolio }) => {
           </div>
         </div>
       </section>
+      ) : <Loader />}
     </>
   );
 };
@@ -59,7 +62,6 @@ export const getStaticProps = async () => {
   const { data } = await axios.get(
     `${process.env.NEXT_PUBLIC_PROXY_URL}/portfolios`
   );
-
   return { props: { portfolio: data?.portfolio } };
 };
 
