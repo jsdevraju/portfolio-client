@@ -1,0 +1,92 @@
+.contact{
+    padding: 5em 0px;
+}
+
+.wrapper{
+    display: flex;
+    gap: 2em;
+}
+
+.location{
+    width: 45%;
+    box-shadow: 0px 5px 5px 5px #f3f3f3;
+    padding: 2em;
+    border-radius: 5px;
+}
+
+.myInfo{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    background-color: #dff3fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+.icon:hover {
+    background-color: #149ddd;
+}
+.icon:hover svg{
+    color: #fff;
+}
+
+.icon svg{
+    font-size: 1.5em;
+    color: #114c68;
+}
+
+.contactForm{
+    width: 45%;
+}
+
+.from_control input{
+    display: block;
+    width: 100%;
+    border: 1px solid #114c68;
+    outline: none;
+    padding: 0.8em;
+    border-radius: 4px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: inherit;
+}
+.from_control textarea{
+    display: block;
+    width: 100%;
+    border: 1px solid #114c68;
+    outline: none;
+    padding: 0.8em;
+    border-radius: 4px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.from_control input:focus{
+    outline: 2px solid #149ddd;
+}
+
+.contactForm button{
+    width: 100%;
+}
+
+
+@media (max-width:768px){
+    .wrapper{
+        flex-direction: column;
+    }
+    .location{
+        width: 100%;
+    }
+    .contactForm{
+        width: 100%;
+    }
+}

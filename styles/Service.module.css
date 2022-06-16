@@ -1,0 +1,35 @@
+.service{
+    padding: 5em 0px;
+}
+
+.wrapper{
+    margin-top: 5em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.serviceCard{
+    box-shadow: 0px 5px 5px 5px #f3f3f3;
+    padding: 2em;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    width: 350px;
+    text-align: center;
+}
+
+.serviceCard:hover{
+    transform: translateY(-10px);
+}
+
+.serviceCard svg{
+    width: 50px;
+    height: 50px;
+    background-color: orangered;
+    color: #fff;
+    border-radius: 100%;
+    padding: 0.5em;
+
+}

@@ -1,0 +1,71 @@
+.portfolio{
+    padding: 5em 0px;
+}
+
+.portfolioItem{
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    gap: 1.25em;
+}
+
+.portCard{
+    width: 300px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.portCard:hover{
+    transform: translateY(10px);
+}
+
+.portCard:hover div{
+    opacity: 1;
+    visibility: visible;
+}
+
+.portCard img{
+    border-radius: 10px;
+}
+
+.portCard div{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    color: #fff;
+}
+
+.portfolioFilter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 3em;
+}
+
+.portfolioFilter button{
+    margin-right: 1em;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+@media (max-width:550px){
+    .portfolioItem{
+        flex-direction: column;
+    }
+    .portCard{
+        width: 100%;
+    }
+    .portfolioFilter{
+        flex-direction: column;
+        gap: 1em;
+    }
+}

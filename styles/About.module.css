@@ -1,0 +1,116 @@
+.about{
+    padding: 5em 0px;
+}
+
+.aboutText{
+    font-size: 2em;
+    color: #173b6c;
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+.aboutText::after{
+    position: absolute;
+    content: "";
+    top: 60px;
+    left: 0px;
+    width: 50px;
+    height: 3px;
+    background-color: #149ddd;
+}
+
+.wrapper{
+    display: flex;
+    gap: 1.5em;
+}
+
+.aboutImg{
+    width: 300px
+}
+
+.aboutInfo{
+    flex: 1;
+}
+
+.aboutCompany{
+    font-size: 1.5em;
+    color: #173b6c;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.aboutDescription{
+    font-size: 1.1em;
+    line-height: 25px;
+    color: #4a4b4d;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.work{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.workInfo{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1.5em;
+}
+
+.workInfo svg{
+    color: #149ddd;
+    font-weight: bold;
+}
+
+.workInfo h4{
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #272829;
+}
+
+.projectInfo{
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.countProject h1{
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+}
+.countProject p{
+    font-size: 1em;
+    font-weight: bolder;
+    color: #122f57;
+}
+
+.skillInfo{
+    margin-top: 5em;
+}
+
+
+@media (max-width:768px){
+    .wrapper{
+        flex-direction: column;
+    }
+
+    .aboutImg{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutInfo{
+        margin-top: 2em;
+    }
+    .workInfo{
+        width: 100%;
+    }
+}
