@@ -28,7 +28,7 @@ const PortfolioDetails = () => {
   const { id } = router.query;
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
-  const [shareUrl, setShareUrl] = useState("")
+  const [shareUrl, setShareUrl] = useState("");
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -74,15 +74,18 @@ const PortfolioDetails = () => {
     }
   };
 
-  useEffect(() =>{
-    setShareUrl(document.URL)
-  }, [])
-  
+  useEffect(() => {
+    setShareUrl(document.URL);
+  }, []);
 
   return (
     <>
-    {console.log(data)}
-      <Meta title={`Razu Islam | ${data?.name === undefined ? `loading...` : data?.name}`} />
+      {console.log(data)}
+      <Meta
+        title={`Razu Islam | ${
+          data?.name === undefined ? `loading...` : data?.name
+        }`}
+      />
       {loading ? (
         <Loader />
       ) : (
@@ -91,7 +94,13 @@ const PortfolioDetails = () => {
             <div className={styles.portContainer}>
               <div className={styles.portImg}>
                 {data?.img && (
-                   <Image src={data?.img} alt="Razu Islam" width={"100%"} height={"100%"} />
+                  <Image
+                    src={data?.img}
+                    alt="Razu Islam"
+                    width={"100%"}
+                    height={"100%"}
+                    // loader={<Loader />}
+                  />
                 )}
               </div>
               <h1 className={styles.text}>

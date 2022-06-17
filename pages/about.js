@@ -50,6 +50,7 @@ const About = ({ data }) => {
                     style={{
                       borderRadius: "10px",
                     }}
+                    // loader={<Loader />}
                   />
                 </div>
                 <div className={styles.aboutInfo}>
@@ -60,7 +61,7 @@ const About = ({ data }) => {
                     in HTML, CSS, Bootstrap, Tailwindcss, JavaScript, Jquery,
                     React.js, React Native, Next.js, Firebase, Wordpress and so
                     many other technologies. I have no experience to working
-                    industry level I'm try to hard work and achieve my goal. But
+                    industry level. I'm try to hard work and achieve my goal. But
                     I have build many project. You can checkout my profile as
                     well. I can give my best to get the work done.
                   </p>

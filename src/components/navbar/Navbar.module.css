@@ -73,11 +73,29 @@
     display: none;
 }
 
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.overlayActive{
+    visibility: visible;
+    opacity: 1;
+}
+
 @media (max-width:1536px){
     .mobile_nav {
         position: fixed;
         top: 50px;
-        right: 50px;
+        right: 30px;
         background: #040b14;
         width: 50px;
         height: 50px;

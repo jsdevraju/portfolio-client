@@ -77,7 +77,7 @@ export default function Home() {
               experience. I love to build project. I'm experienced in HTML, CSS,
               Bootstrap, Tailwindcss, JavaScript, Jquery, React.js, React
               Native, Next.js, Firebase, Wordpress and so many other
-              technologies. I have no experience to working industry level I'm
+              technologies. I have no experience to working industry level. I'm
               try to hard work and achieve my goal. But I have build many
               project. You can checkout my profile as well. I can give my best
               to get the work done.

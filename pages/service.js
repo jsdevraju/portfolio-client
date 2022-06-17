@@ -6,6 +6,7 @@ import { CgExtension } from "react-icons/cg";
 import Meta from "../src/components/meta/Meta";
 
 const Service = () => {
+  console.log('Hello Service')
   return (
     <>
       <Meta title="Razu Islam | Service" />

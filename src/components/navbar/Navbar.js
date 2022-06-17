@@ -20,7 +20,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-
+import Loader from "../loader/Loader";
 
 const Navbar = () => {
   const router = useRouter();
@@ -29,21 +29,21 @@ const Navbar = () => {
 
   const navItem = [
     {
-      id:1,
+      id: 1,
       text: "Home",
       url: "/",
       className: router.pathname == "/" ? "nav_links active" : "nav_links",
       icon: <FaHome size={22} />,
     },
     {
-      id:2,
+      id: 2,
       text: "About",
       url: "/about",
       className: router.pathname == "/about" ? "nav_links active" : "nav_links",
       icon: <SiAboutdotme size={22} />,
     },
     {
-      id:3,
+      id: 3,
       text: "Service",
       url: "/service",
       className:
@@ -51,7 +51,7 @@ const Navbar = () => {
       icon: <FiSettings size={22} />,
     },
     {
-      id:4,
+      id: 4,
       text: "Portfolio",
       url: "/portfolio",
       className:
@@ -59,7 +59,7 @@ const Navbar = () => {
       icon: <BiSlideshow size={22} />,
     },
     {
-      id:5,
+      id: 5,
       text: "Contact",
       url: "/contact",
       className:
@@ -67,7 +67,7 @@ const Navbar = () => {
       icon: <MdContactMail size={22} />,
     },
     {
-      id:6,
+      id: 6,
       text: "Login",
       url: "/login",
       className: router.pathname == "/login" ? "nav_links active" : "nav_links",
@@ -77,7 +77,7 @@ const Navbar = () => {
 
   if (token)
     navItem.push({
-      id:7,
+      id: 7,
       text: "Dashboard",
       url: "/dashboard",
       className:
@@ -89,10 +89,20 @@ const Navbar = () => {
 
   return (
     <>
-    <div className={styles.mobile_nav} onClick={() => setShow(!show)}>
-      <GoThreeBars />
-    </div>
-      <nav className={show ? `${styles.navbar} ${styles.navbarActive}` : styles.navbar}>
+      <div className={styles.mobile_nav} onClick={() => setShow(!show)}>
+        <GoThreeBars />
+      </div>
+      <div
+        onClick={() => setShow(!show)}
+        className={
+          show ? `${styles.overlay} ${styles.overlayActive}` : styles.overlay
+        }
+      ></div>
+      <nav
+        className={
+          show ? `${styles.navbar} ${styles.navbarActive}` : styles.navbar
+        }
+      >
         {/* Profile header */}
         <div className={styles.profile}>
           <Image
@@ -102,6 +112,7 @@ const Navbar = () => {
             style={{
               borderRadius: "100%",
             }}
+            // loader={<Loader />}
             src={profile}
             alt="Razu Islam"
           />
@@ -136,20 +147,20 @@ const Navbar = () => {
         {/* Menu Item */}
         <div className={styles.navItem}>
           <ul>
-            {navItem.map(({ text, url, className, icon, id}) => (
+            {navItem.map(({ text, url, className, icon, id }) => (
               <li
-              key={id}
-              style={{
-                marginTop: "1.5em",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              {icon}
-              <Link href={url}>
-                <a className={className}>{text}</a>
-              </Link>
-            </li>
+                key={id}
+                style={{
+                  marginTop: "1.5em",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {icon}
+                <Link href={url}>
+                  <a className={className}>{text}</a>
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Loader from "../loader/Loader";
 
 const Comment = ({ comment }) => {
 
@@ -12,6 +13,7 @@ const Comment = ({ comment }) => {
               alt="Razu Islam"
               width={"100%"}
               height={"100%"}
+              // loader={<Loader />}
             />
           </div>
           <div className="user_comment">
