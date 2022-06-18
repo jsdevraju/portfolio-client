@@ -31,5 +31,10 @@
     color: #fff;
     border-radius: 100%;
     padding: 0.5em;
+}
 
+@media (max-width:550px){
+    .serviceCard{
+        width: 100%;
+    }
 }

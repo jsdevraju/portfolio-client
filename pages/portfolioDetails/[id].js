@@ -97,8 +97,8 @@ const PortfolioDetails = () => {
                   <Image
                     src={data?.img}
                     alt="Razu Islam"
-                    width={"100%"}
-                    height={"100%"}
+                    width={1000}
+                    height={500}
                     // loader={<Loader />}
                   />
                 )}
