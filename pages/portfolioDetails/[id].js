@@ -22,6 +22,9 @@ import Button from "../../src/components/button/Button";
 import toast from "react-hot-toast";
 import Meta from "../../src/components/meta/Meta";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { setComment } from "../../src/redux/commentSlice";
+import { setLike } from "../../src/redux/likSlice";
 
 const PortfolioDetails = () => {
   const router = useRouter();
@@ -30,6 +33,9 @@ const PortfolioDetails = () => {
   const [loading, setLoading] = useState(false);
   const [shareUrl, setShareUrl] = useState("");
   const [text, setText] = useState("");
+  const dispatch = useDispatch();
+  const like = useSelector((state) => state.like.like);
+  const comment = useSelector((state) => state.comment.comment);
 
   useEffect(() => {
     const getSingleData = async () => {
@@ -39,6 +45,8 @@ const PortfolioDetails = () => {
           `${process.env.NEXT_PUBLIC_PROXY_URL}/portfolio/${id}`
         );
         setData(data?.portfolio);
+        dispatch(setLike(data?.portfolio?.reactBy));
+        dispatch(setComment(data?.portfolio?.comments))
         setLoading(false);
       } catch (error) {
         setLoading(false);
@@ -51,9 +59,10 @@ const PortfolioDetails = () => {
   const addReactToPost = async () => {
     setLoading(true);
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_PROXY_URL}/like/${id}`);
+      const { data } = await axios.post(`${process.env.NEXT_PUBLIC_PROXY_URL}/like/${id}`);
       toast.success("Liked Added");
       setLoading(false);
+      dispatch(setLike(data?.portfolio?.reactBy))
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -63,11 +72,14 @@ const PortfolioDetails = () => {
   const addCommentToPost = async () => {
     setLoading(true);
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_PROXY_URL}/comment/${id}`, {
+     const { data } = await axios.post(`${process.env.NEXT_PUBLIC_PROXY_URL}/comment/${id}`, {
         text,
       });
+      setText("")
       toast.success("Comment Added");
       setLoading(false);
+      dispatch(setComment(data?.portfolio?.comments))
+      console.log(data?.portfolio?.comments)
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -80,7 +92,6 @@ const PortfolioDetails = () => {
 
   return (
     <>
-      {console.log(data)}
       <Meta
         title={`Razu Islam | ${
           data?.name === undefined ? `loading...` : data?.name
@@ -126,10 +137,10 @@ const PortfolioDetails = () => {
               />
               <div className={styles.like_commnet}>
                 <p>
-                  Like: <span>{data?.reactBy?.length}</span>
+                  Like: <span>{like?.length}</span>
                 </p>
                 <p>
-                  Comment: <span>{data?.comments?.length}</span>
+                  Comment: <span>{comment?.length}</span>
                 </p>
               </div>
               <div className={styles.description}>
@@ -172,8 +183,8 @@ const PortfolioDetails = () => {
                 </form>
               </div>
               <div className={styles.comment_main}>
-                {data?.comments &&
-                  data?.comments?.map((comment, index) => (
+                {comment &&
+                  comment?.map((comment, index) => (
                     <Comment key={index} comment={comment} />
                   ))}
               </div>

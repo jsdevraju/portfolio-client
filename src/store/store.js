@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userSlice, { login } from "../redux/userSlice";
+import portSlice from "../redux/portSlice";
+import commentSlice from "../redux/commentSlice";
+import likeSlice from "../redux/likSlice";
 import { Provider } from "react-redux";
 import axios from "axios";
 import { useEffect } from "react";
@@ -9,6 +12,9 @@ import { useRouter } from 'next/router'
 const store = configureStore({
   reducer: {
     admin: userSlice,
+    port:portSlice,
+    comment:commentSlice,
+    like:likeSlice
   },
   devTools: process.env.NODE_ENV !== 'production',
 });

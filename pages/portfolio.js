@@ -2,11 +2,17 @@ import styles from "../styles/Portfolio.module.css";
 import Button from "../src/components/button/Button";
 import PortfolioCard from "../src/components/portfolio/PortfolioCard.js";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Meta from "../src/components/meta/Meta";
 import Loader from "../src/components/loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { setPortfolio } from "../src/redux/portSlice";
 
 const Portfolio = ({ portfolio }) => {
+  const dispatch = useDispatch();
+  const portfolios = useSelector((state) => state.port.port);
+
+
   const allCategories = [
     "all",
     ...new Set(portfolio?.map((item) => item.category)),
@@ -23,10 +29,14 @@ const Portfolio = ({ portfolio }) => {
     setPortData(newItems);
   };
 
+  useEffect(() =>{
+    dispatch(setPortfolio(portfolio));
+  }, [portfolio])
+
   return (
     <>
       <Meta title="Razu Islam | Portfolio" />
-      {portfolio ? (
+      {portfolios ? (
         <section className={styles.portfolio}>
         <div className="container">
           <h1 className="aboutText">Portfolio</h1>
