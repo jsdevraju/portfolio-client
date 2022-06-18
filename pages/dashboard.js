@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import Input from "../src/components/input/Input";
 import { storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import Protected from "../src/components/protected/Protected";
 
 const initialState = {
   project: "",
@@ -146,7 +147,8 @@ const Dashboard = ({ data }) => {
 
   return (
     <>
-      <Meta title="Razu Islam | Admin Dashboard" />
+    <Protected>
+      {token ? <Meta title="Razu Islam | Admin Dashboard" /> : <Meta title="Razu Islam | loading..." />}
       {loading ? (
         <Loader />
       ) : (
@@ -327,6 +329,7 @@ const Dashboard = ({ data }) => {
           </div>
         </section>
       )}
+      </Protected>
     </>
   );
 };
