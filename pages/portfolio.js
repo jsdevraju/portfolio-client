@@ -72,6 +72,7 @@ export const getStaticProps = async () => {
   const { data } = await axios.get(
     `${process.env.NEXT_PUBLIC_PROXY_URL}/portfolios`
   );
+  console.log(data?.portfolio?.length)
   return { props: { portfolio: data?.portfolio } };
 };
 
