@@ -342,7 +342,7 @@ const About = ({ data }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const { data } = await axios.get(
     `${process.env.NEXT_PUBLIC_PROXY_URL}/projects`
   );
