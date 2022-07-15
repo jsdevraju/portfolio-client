@@ -12,6 +12,7 @@ import Loader from "../src/components/loader/Loader";
 const About = ({ data }) => {
   const [loading, setLoading] = useState(false);
   const [skill, setSkill] = useState([]);
+
   useEffect(() => {
     const getSkill = async () => {
       setLoading(true);
@@ -50,7 +51,6 @@ const About = ({ data }) => {
                     style={{
                       borderRadius: "10px",
                     }}
-                    // loader={<Loader />}
                   />
                 </div>
                 <div className={styles.aboutInfo}>

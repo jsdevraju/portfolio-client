@@ -1,9 +1,8 @@
 import styles from "../styles/Home.module.css";
 import Meta from "../src/components/meta/Meta";
-import Button from "../src/components/button/Button";
 import Typed from "typed.js";
 import { useEffect, useMemo, useRef } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 export default function Home() {
   const textRef = useRef();
@@ -24,13 +23,12 @@ export default function Home() {
       loop: true,
       loopCount: Infinity,
     };
-    
+
     const typed = new Typed(textRef.current, options);
 
     return () => {
       typed.destroy();
     };
-
   }, [text]);
 
   return (
@@ -82,15 +80,35 @@ export default function Home() {
               project. You can checkout my profile as well. I can give my best
               to get the work done.
             </p>
-            <Button
-              text="About Me"
-              className="app_btn"
-              type="button"
+            <div
               style={{
-                marginTop: "1em",
+                marginTop: "2em",
               }}
-              onClick={() => router.push("/about")}
-            />
+            >
+              <a
+                text="About Me"
+                className="app_btn"
+                type="button"
+                style={{
+                  marginTop: "1em",
+                }}
+                onClick={() => router.push("/about")}
+              >
+                About Me
+              </a>
+              <a
+                className="app_btn"
+                style={{
+                  marginLeft: "1em",
+                  cursor: "pointer",
+                }}
+                download
+                href="https://docdro.id/feswOiq"
+                target="_blank"
+              >
+                Download Cv
+              </a>
+            </div>
           </div>
         </div>
       </section>
