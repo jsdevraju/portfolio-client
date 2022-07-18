@@ -90,6 +90,7 @@ const PortfolioDetails = () => {
     setShareUrl(document.URL);
   }, []);
 
+
   return (
     <>
       <Meta
@@ -117,7 +118,13 @@ const PortfolioDetails = () => {
               <h1 className={styles.text}>
                 Application Name: <span>{data?.name}</span>
               </h1>
-              <a
+             <div style={{
+              display:"flex",
+              justifyContent:"space-between",
+              alignItems:"center",
+              flexWrap:"wrap"
+             }}>
+             <a
                 className={styles.liveDemo}
                 href={data?.liveDemo}
                 target="_blank"
@@ -125,6 +132,8 @@ const PortfolioDetails = () => {
               >
                 Visit: {data?.liveDemo}
               </a>
+              <p>Build Date: {data?.buildDate}</p>
+             </div>
               <Button
                 onClick={addReactToPost}
                 text="Like"

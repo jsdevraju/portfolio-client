@@ -3,6 +3,7 @@ import ServiceCard from "../src/components/serviceCard/ServiceCard";
 import { SiWebflow } from "react-icons/si";
 import { AiFillAppstore } from "react-icons/ai";
 import { CgExtension } from "react-icons/cg";
+import { FaNpm } from "react-icons/fa";
 import Meta from "../src/components/meta/Meta";
 
 const Service = () => {
@@ -19,7 +20,7 @@ const Service = () => {
                 icon={<SiWebflow size={20} />}
                 title={"Web Development"}
                 sortDesc={
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled"
+                  "I have build your dream full stack web application/products. I have already build a hugs of products. You can checkout my portfolio. I build web application, front-end, backend, Node Package Manger, Chrome Extension Development etc"
                 }
                 className={styles.serviceCard}
               />
@@ -27,7 +28,7 @@ const Service = () => {
                 icon={<AiFillAppstore size={20} />}
                 title={"App Development"}
                 sortDesc={
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled"
+                  "I have build your dream full stack web application/products. I have already build a hugs of products. You can checkout my portfolio. I build web application, front-end, backend, Node Package Manger, Chrome Extension Development etc"
                 }
                 className={styles.serviceCard}
               />
@@ -35,7 +36,15 @@ const Service = () => {
                 icon={<CgExtension size={20} />}
                 title={"Extension Development"}
                 sortDesc={
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled"
+                  "I have build your dream full stack web application/products. I have already build a hugs of products. You can checkout my portfolio. I build web application, front-end, backend, Node Package Manger, Chrome Extension Development etc"
+                }
+                className={styles.serviceCard}
+              />
+              <ServiceCard
+                icon={<FaNpm size={20} />}
+                title={"Node Package Manger Development"}
+                sortDesc={
+                  "I have build your dream full stack web application/products. I have already build a hugs of products. You can checkout my portfolio. I build web application, front-end, backend, Node Package Manger, Chrome Extension Development etc"
                 }
                 className={styles.serviceCard}
               />

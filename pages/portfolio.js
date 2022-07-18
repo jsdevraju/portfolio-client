@@ -11,7 +11,7 @@ import { setPortfolio } from "../src/redux/portSlice";
 const Portfolio = ({ portfolio }) => {
   const dispatch = useDispatch();
   const portfolios = useSelector((state) => state.port.port);
-
+  const [loadedData, setLoadedData] = useState([]);
 
   const allCategories = [
     "all",
@@ -29,41 +29,84 @@ const Portfolio = ({ portfolio }) => {
     setPortData(newItems);
   };
 
-  useEffect(() =>{
+  const createPagination = (items, limit = 6, offset = 0) => {
+    let arr = [];
+    items.forEach((item, index) => {
+      if (index >= offset && index < offset + limit) {
+        arr.push(item);
+      }
+    });
+    return arr;
+  };
+
+  const loadMore = () => {
+    if (loadedData?.length >= portData?.length) return;
+    const newProducts = createPagination(portData, 6, loadedData?.length)
+    setLoadedData([...loadedData, ...newProducts]);
+  };
+
+  useEffect(() => {
+    createPagination(portData, 6, 6);
+    setLoadedData(createPagination(portData))
+  }, []);
+
+  useEffect(() => {
     dispatch(setPortfolio(portfolio));
-  }, [portfolio])
+  }, [portfolio]);
 
   return (
     <>
       <Meta title="Razu Islam | Portfolio" />
       {portfolios ? (
         <section className={styles.portfolio}>
-        <div className="container">
-          <h1 className="aboutText">Portfolio</h1>
-          <div className={styles.portfolioFilter}>
-            {categories &&
-              categories?.map((category, index) => (
+          <div className="container">
+            <h1 className="aboutText">Portfolio</h1>
+            <div className={styles.portfolioFilter}>
+              {categories &&
+                categories?.map((category, index) => (
+                  <Button
+                    onClick={() => filterItems(category)}
+                    key={index}
+                    text={category}
+                    className="app_btn"
+                  />
+                ))}
+            </div>
+            <div className={styles.portfolioItem}>
+              {loadedData &&
+                loadedData?.map((data) => (
+                  <PortfolioCard
+                    key={data?._id}
+                    data={data}
+                    className={styles.portCard}
+                  />
+                ))}
+            </div>
+            {/* Loading More Button */}
+            {loadedData?.length != portData?.length && (
+              <div
+                style={{
+                  marginTop: "2em",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <Button
-                  onClick={() => filterItems(category)}
-                  key={index}
-                  text={category}
+                  onClick={loadMore}
+                  text={"Load More"}
                   className="app_btn"
+                  style={{
+                    cursor: "pointer",
+                  }}
                 />
-              ))}
+              </div>
+            )}
           </div>
-          <div className={styles.portfolioItem}>
-            {portData &&
-              portData?.map((data) => (
-                <PortfolioCard
-                  key={data?._id}
-                  data={data}
-                  className={styles.portCard}
-                />
-              ))}
-          </div>
-        </div>
-      </section>
-      ) : <Loader />}
+        </section>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };
@@ -72,7 +115,7 @@ export const getServerSideProps = async () => {
   const { data } = await axios.get(
     `${process.env.NEXT_PUBLIC_PROXY_URL}/portfolios`
   );
-  console.log(data?.portfolio?.length)
+  console.log(data?.portfolio?.length);
   return { props: { portfolio: data?.portfolio } };
 };
 

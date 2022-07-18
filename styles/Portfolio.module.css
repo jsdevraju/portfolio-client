@@ -15,11 +15,15 @@
     transition: 0.3s ease-in-out;
     cursor: pointer;
     position: relative;
+    box-shadow: 0px 5px 5px 5px #ddd;
+    border-radius: 4px;
+    padding: 1em;
 }
 
 .portCard:hover{
     transform: translateY(10px);
 }
+
 
 .portCard:hover div{
     opacity: 1;

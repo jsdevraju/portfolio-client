@@ -99,6 +99,10 @@ body{
   object-fit: cover;
 }
 
+.portInfo h4{
+  color: #555353;
+}
+
 @media (max-width:550px){
   .aboutText::after{
     top: 70px;
