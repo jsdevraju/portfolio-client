@@ -19,19 +19,22 @@ const Portfolio = ({ portfolio }) => {
   ];
   const [portData, setPortData] = useState(portfolio);
   const [categories, setCategories] = useState(allCategories);
+  
 
   const filterItems = (category) => {
     if (category === "all") {
       setPortData(portfolio);
+      setLoadedData(createPagination(portfolio));
       return;
     }
     const newItems = portfolio?.filter((item) => item?.category === category);
     setPortData(newItems);
+    setLoadedData(createPagination(newItems));
   };
 
   const createPagination = (items, limit = 6, offset = 0) => {
     let arr = [];
-    items.forEach((item, index) => {
+    items?.forEach((item, index) => {
       if (index >= offset && index < offset + limit) {
         arr.push(item);
       }
@@ -46,8 +49,10 @@ const Portfolio = ({ portfolio }) => {
   };
 
   useEffect(() => {
-    createPagination(portData, 6, 6);
     setLoadedData(createPagination(portData))
+    return () => {
+      setLoadedData()
+    }
   }, []);
 
   useEffect(() => {
