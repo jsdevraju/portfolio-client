@@ -103,7 +103,7 @@ export default function Home() {
                   cursor: "pointer",
                 }}
                 download
-                href="https://docdro.id/feswOiq"
+                href="https://www.docdroid.net/KJhnIw0/resume-pdf"
                 target="_blank"
               >
                 Download Cv
