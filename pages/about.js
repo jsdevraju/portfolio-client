@@ -54,16 +54,9 @@ const About = ({ data }) => {
                   />
                 </div>
                 <div className={styles.aboutInfo}>
-                  <h1 className={styles.aboutCompany}>I am at Own Company.</h1>
+                  <h1 className={styles.aboutCompany}>I am at Ks Devware.</h1>
                   <p className={styles.aboutDescription}>
-                    As the junior front end developer I'm Razu Islam with 6
-                    month experience. I love to build project. I'm experienced
-                    in HTML, CSS, Bootstrap, Tailwindcss, JavaScript, Jquery,
-                    React.js, React Native, Next.js, Firebase, Wordpress and so
-                    many other technologies. I have no experience to working
-                    industry level. I'm try to hard work and achieve my goal. But
-                    I have build many project. You can checkout my profile as
-                    well. I can give my best to get the work done.
+                  Experienced Front-end development with over 1 years of experience in software industry. Excellent reputation for resolving problems and improving customer satisfaction. I'm a junior software developer to help you build on your product or software anything you want. As a developer it's my duty to help you. Recently I build some awesome software or product you can checkout my LinkedIn featured or checkout my portfolio. I will try to help people who need to build a product or people already have a product he need to redesign or fix some issue. I have with 1 years of experience in developing amazing product for people. My main stack is MERN stack but most of experience I greater in froent-development and I've really great experience with it. I can write clean and reusable codes.
                   </p>
                   <div className={styles.work}>
                     <AboutInfo
